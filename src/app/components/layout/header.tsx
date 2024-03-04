@@ -1,0 +1,33 @@
+'use client'
+
+import Drawer from '@/app/components/layout/drawer'
+import { useState } from 'react'
+
+const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <header className='flex justify-between items-center p-4 bg-gray-800 text-white'>
+      <div className='text-2xl font-bold'>Logo</div>
+      <button className='md:hidden' onClick={() => setIsOpen(!isOpen)}>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          strokeWidth='1.5'
+          stroke='currentColor'
+          className='w-6 h-6'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
+          />
+        </svg>
+      </button>
+      <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
+    </header>
+  )
+}
+
+export default Header
