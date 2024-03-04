@@ -1,6 +1,8 @@
 // app/components/Drawer.tsx
 'use client'
 
+import { SidebarItems } from '@/app/components/layout/sidebar'
+import Link from 'next/link'
 import { useEffect } from 'react'
 
 interface DrawerProps {
@@ -31,7 +33,11 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
         isOpen ? 'block' : 'hidden'
       } bg-black bg-opacity-50`}
     >
-      <div className='fixed inset-y-0 left-0 w-64 bg-white text-gray-900 p-4'>
+      <div
+        className={`drawer-side fixed inset-y-0 left-0 w-64 bg-white text-gray-900 p-4 transition-all duration-500 transform -translate-x-full ${
+          isOpen && 'translate-x-0'
+        }`}
+      >
         <button className='mb-4' onClick={onClose}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -50,15 +56,17 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
         </button>
         <nav>
           <ul>
-            <li>
-              <a href='#'>Home</a>
-            </li>
-            <li>
-              <a href='#'>About</a>
-            </li>
-            <li>
-              <a href='#'>Contact</a>
-            </li>
+            {SidebarItems.map((item) => (
+              <li key={item.name} className='m-3'>
+                <Link
+                  href={`/${item.href}`}
+                  className='flex items-center text-lg'
+                >
+                  <span className='mr-2'>{item.icon}</span>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
