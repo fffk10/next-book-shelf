@@ -1,19 +1,20 @@
-// app/components/Sidebar.tsx
 'use client'
+
+import Link from 'next/link'
 
 const Sidebar: React.FC = () => {
   return (
-    <aside className='hidden md:block w-64 bg-gray-200 p-4'>
+    <aside className='hidden md:block w-64 bg-white text-gray-900 p-4 border-r '>
       <nav>
         <ul>
           <li>
-            <a href='#'>Home</a>
+            <Link href='/'>Home</Link>
           </li>
           <li>
-            <a href='#'>About</a>
+            <Link href='/about'>About</Link>
           </li>
           <li>
-            <a href='#'>Contact</a>
+            <Link href='/'>Contact</Link>
           </li>
         </ul>
       </nav>

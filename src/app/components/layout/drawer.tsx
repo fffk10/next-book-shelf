@@ -31,7 +31,7 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
         isOpen ? 'block' : 'hidden'
       } bg-black bg-opacity-50`}
     >
-      <div className='fixed inset-y-0 left-0 w-64 bg-white p-4'>
+      <div className='fixed inset-y-0 left-0 w-64 bg-white text-gray-900 p-4'>
         <button className='mb-4' onClick={onClose}>
           <svg
             xmlns='http://www.w3.org/2000/svg'

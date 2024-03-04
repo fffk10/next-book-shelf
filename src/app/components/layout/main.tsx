@@ -6,7 +6,7 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ children }) => {
-  return <main className='flex-1 p-4'>{children}</main>
+  return <main className='flex-1 p-4 bg-white text-gray-900'>{children}</main>
 }
 
 export default Main

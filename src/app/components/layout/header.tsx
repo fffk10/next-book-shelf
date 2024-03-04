@@ -2,13 +2,17 @@
 
 import Drawer from '@/app/components/layout/drawer'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className='flex justify-between items-center p-4 bg-gray-800 text-white'>
-      <div className='text-2xl font-bold'>Logo</div>
+    <header className='flex justify-between items-center p-4 bg-purple-950 text-white'>
+      <div className='flex text-2xl font-bold'>
+        <Image src='/logo.png' width={32} height={32} alt='logo' />
+        BookShelf
+      </div>
       <button className='md:hidden' onClick={() => setIsOpen(!isOpen)}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
