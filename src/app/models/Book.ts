@@ -4,7 +4,7 @@ export type Book = {
   author: string
   isbn: string
   publisher: string
-  publishedDate?: string
-  description?: string
-  coverImage?: string
+  publishedDate: string
+  description: string
+  coverImage: string
 }

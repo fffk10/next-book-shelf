@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "node -r dotenv/config ./seed/seed.js"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.7.2",
     "@yamada-ui/react": "^1.2.8",
     "@yamada-ui/table": "^1.0.19",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",

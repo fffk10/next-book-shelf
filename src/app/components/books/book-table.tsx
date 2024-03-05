@@ -1,6 +1,6 @@
 'use client'
 
-import { Book } from '@/app/types/book'
+import { Book } from '@/app/models/Book'
 import { Column, Table } from '@yamada-ui/table'
 import { useMemo } from 'react'
 

@@ -1,4 +1,4 @@
-import { Book } from '@/app/types/book'
+import { Book } from '@/app/models/Book'
 
 const testBooks: Book[] = [
   {
