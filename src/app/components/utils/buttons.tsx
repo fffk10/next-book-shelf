@@ -7,14 +7,14 @@ type CommonButtonProps = {
   variant?: 'solid' | 'outline' | 'ghost' | 'link' | 'unstyled'
   size?: 'xs' | 'sm' | 'md' | 'lg'
   colorScheme?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const AddButton: React.FC<CommonButtonProps> = ({
   variant = 'outline',
   size = 'sm',
   colorScheme = 'secondary',
-  onClick,
+  onClick = () => {},
 }) => {
   return (
     <Button

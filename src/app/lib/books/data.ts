@@ -5,7 +5,7 @@ export const fetchBooks = async (): Promise<Book[]> => {
   const books = await sql<Book>`
     SELECT *
     FROM books
-    LIMIT 5`
+    LIMIT 100`
 
   return books.rows
 }
