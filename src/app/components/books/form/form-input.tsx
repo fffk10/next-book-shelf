@@ -18,7 +18,7 @@ export type FormInputProps = {
 }
 
 /**
- * Form構成
+ * Formを構成するInput要素
  * @param name 対象項目
  * @param label 項目ラベル名
  * @param placeholder プレイスホルダー

@@ -8,7 +8,7 @@ type BookTableProps = {
   books: Book[]
 }
 
-const BookTable = ({ books }: BookTableProps) => {
+const BookTable: React.FC<BookTableProps> = ({ books }) => {
   const columns = useMemo<Column<Book>[]>(
     () => [
       {

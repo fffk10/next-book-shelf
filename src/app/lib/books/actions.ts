@@ -7,7 +7,6 @@ import { redirect } from 'next/navigation'
 import { z } from 'zod'
 
 const FormSchema = z.object({
-  // id: z.number(),
   title: z
     .string()
     .min(1, {
