@@ -1,7 +1,7 @@
 'use client'
 
 import { Book } from '@/app/models/Book'
-import { Column, Table } from '@yamada-ui/table'
+import { Column, PagingTable } from '@yamada-ui/table'
 import { useMemo } from 'react'
 
 type BookTableProps = {
@@ -41,7 +41,7 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
 
   return (
     <div className='max-h-[900px] overflow-y-auto'>
-      <Table
+      <PagingTable
         variant='striped'
         columns={columns}
         data={books}
