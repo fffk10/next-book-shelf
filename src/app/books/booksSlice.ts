@@ -4,11 +4,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Book } from '@/app/models/Book'
 
 interface BooksState {
-  books: Book[]
+  books: Book[] // 書籍リスト
+  selectedIds: string[] // 削除対象のidリスト
 }
 
 const initialState: BooksState = {
   books: [],
+  selectedIds: [],
 }
 
 export const booksSlice = createSlice({
@@ -21,8 +23,8 @@ export const booksSlice = createSlice({
     addMultiple: (state, action: PayloadAction<Book[]>) => {
       state.books.push(...action.payload)
     },
-    remove: (state, action: PayloadAction<number>) => {
-      state.books = state.books.filter((book) => book.id !== action.payload)
+    addSelectedIds: (state, action: PayloadAction<string[]>) => {
+      state.selectedIds = action.payload
     },
     clear: (state) => {
       state.books = []
@@ -30,5 +32,5 @@ export const booksSlice = createSlice({
   },
 })
 
-export const { add, addMultiple, remove, clear } = booksSlice.actions
+export const { add, addMultiple, addSelectedIds, clear } = booksSlice.actions
 export default booksSlice.reducer

@@ -2,16 +2,23 @@
 
 import { Button } from '@yamada-ui/react'
 import { ReactElement } from 'react'
-import { FaPlus } from 'react-icons/fa6'
 
 type CommonButtonProps = {
+  /** テキスト */
   text?: string
+  /** バリアント */
   variant?: 'solid' | 'outline' | 'ghost' | 'link' | 'unstyled'
+  /** サイズ */
   size?: 'xs' | 'sm' | 'md' | 'lg'
+  /** カラースキーム */
   colorScheme?: string
+  /** disable */
   disable?: boolean
+  /** クリックハンドラ */
   onClick?: () => void
+  /** ボタン左側のアイコン */
   leftIcon?: ReactElement
+  /** ボタン右側のアイコン */
   rightIcon?: ReactElement
 }
 
