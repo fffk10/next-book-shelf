@@ -60,6 +60,7 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
         highlightOnHover
         selectedRowIds={selectedIds}
         onChangeSelect={handleChangeSelect}
+        rowsClickSelect
         theadProps={{
           position: 'sticky',
           top: 0,

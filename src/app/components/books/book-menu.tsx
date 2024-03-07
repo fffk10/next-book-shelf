@@ -2,6 +2,7 @@
 
 import { CommonButton } from '@/app/components/common/buttons'
 import CommonModal from '@/app/components/common/modal'
+import { deleteBooks } from '@/app/lib/books/actions'
 import { AppDispatch, RootState } from '@/app/store'
 import { Flex, List, ListItem, Stack, Text } from '@yamada-ui/react'
 import Link from 'next/link'
@@ -26,7 +27,7 @@ const BookMenu = () => {
         <Text>以下の書籍を削除しますがよろしいですか？</Text>
         <List>
           {selectedIds.map((id) => {
-            const book = books.find((book) => id == book.id)
+            const book = books.find((book) => id == book.id.toString())
             return (
               <ListItem key={id}>
                 {id}: {book?.title}
@@ -41,7 +42,11 @@ const BookMenu = () => {
   /**
    * 削除確認モーダル 実削除処理
    */
-  const handleDelete = async (): Promise<void> => {}
+  const handleDelete = async (): Promise<void> => {
+    // TODO 消せるけど遅い
+    // TODO Loading
+    await deleteBooks(selectedIds)
+  }
 
   return (
     <>
