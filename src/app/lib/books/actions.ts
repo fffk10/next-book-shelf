@@ -69,16 +69,12 @@ export const createBook = async (
 
 /**
  * 登録済み書籍削除
- * @param ids 削除対象書籍のids(単体削除にも対応)
+ * @param id 削除対象書籍のid
  */
-export const deleteBooks = async (ids: string | string[]): Promise<void> => {
-  // 単体でidを渡された場合は配列に変換 TODO ここでnumberに変更するのは気持ち悪い
-  const targetIds = Array.isArray(ids) ? ids.map(Number) : [Number(ids)]
-
+export const deleteBooks = async (id: string): Promise<void> => {
   try {
-    // TODO 複数消すときに"3,4"となっている
     await sql`
-      DELETE FROM books WHERE id IN (${targetIds.join(',')})
+      DELETE FROM books WHERE id IN (${id})
     `
   } catch (err) {
     console.log(err)

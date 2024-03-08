@@ -29,8 +29,12 @@ export const booksSlice = createSlice({
     clear: (state) => {
       state.books = []
     },
+    clearSelectedIds: (state) => {
+      state.selectedIds = []
+    },
   },
 })
 
-export const { add, addMultiple, addSelectedIds, clear } = booksSlice.actions
+export const { add, addMultiple, addSelectedIds, clear, clearSelectedIds } =
+  booksSlice.actions
 export default booksSlice.reducer

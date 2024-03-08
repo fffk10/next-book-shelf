@@ -4,7 +4,7 @@ import { addMultiple, addSelectedIds } from '@/app/books/booksSlice'
 import { Book } from '@/app/models/Book'
 import { AppDispatch, RootState } from '@/app/store'
 import { Column, PagingTable } from '@yamada-ui/table'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 type BookTableProps = {
@@ -44,7 +44,9 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
 
   const selectedIds = useSelector((state: RootState) => state.books.selectedIds)
   const dispatch: AppDispatch = useDispatch()
-  dispatch(addMultiple(books))
+  useEffect(() => {
+    dispatch(addMultiple(books))
+  }, [books, dispatch])
 
   const handleChangeSelect = (ids: string[]) => {
     dispatch(addSelectedIds(ids))

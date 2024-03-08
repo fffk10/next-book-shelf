@@ -1,5 +1,6 @@
 'use client'
 
+import { clearSelectedIds } from '@/app/books/booksSlice'
 import { CommonButton } from '@/app/components/common/buttons'
 import CommonModal from '@/app/components/common/modal'
 import { deleteBooks } from '@/app/lib/books/actions'
@@ -43,9 +44,12 @@ const BookMenu = () => {
    * 削除確認モーダル 実削除処理
    */
   const handleDelete = async (): Promise<void> => {
-    // TODO 消せるけど遅い
     // TODO Loading
-    await deleteBooks(selectedIds)
+    for (const id of selectedIds) {
+      await deleteBooks(id)
+    }
+
+    dispatch(clearSelectedIds())
   }
 
   return (
@@ -58,7 +62,7 @@ const BookMenu = () => {
           <CommonButton
             text='削除'
             colorScheme='yellow'
-            disable={false}
+            disable={selectedIds.length == 0}
             onClick={() => setOpenDeleteModal(true)}
           />
         </Stack>
