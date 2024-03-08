@@ -27,16 +27,8 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
         accessorKey: 'author',
       },
       {
-        header: 'ISBN番号',
-        accessorKey: 'isbn',
-      },
-      {
         header: '出版社',
-        accessorKey: 'publishedDate',
-      },
-      {
-        header: 'カバー画像',
-        accessorKey: 'coverImage',
+        accessorKey: 'publisher',
       },
     ],
     []

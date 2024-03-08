@@ -40,7 +40,7 @@ const CreateBook = FormSchema.omit({})
 export const createBook = async (
   prevState: ValidateMessageState,
   formData: FormData
-): Promise<ValidateMessageState | void> => {
+): Promise<ValidateMessageState> => {
   const validatedFields = CreateBook.safeParse({
     title: formData.get('title'),
     author: formData.get('author'),
