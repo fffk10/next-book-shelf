@@ -14,9 +14,7 @@ export const fetchBook = async (id: number): Promise<Book> => {
 
 export const fetchBooks = async (): Promise<Book[]> => {
   const books = await sql<Book>`
-    SELECT *
-    FROM books
-    LIMIT 100`
+    SELECT * FROM books ORDER BY id LIMIT 100`
 
   return books.rows
 }

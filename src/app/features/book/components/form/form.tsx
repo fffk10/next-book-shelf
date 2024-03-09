@@ -53,7 +53,10 @@ const Form: React.FC<FormProps> = ({ book }) => {
   const [formValue, setFormValue] = useState<Book>(
     isEdit && book ? book : initBook
   )
-  // フォーム内容更新ハンドラ
+  /**
+   * フォーム内容更新ハンドラ
+   * @param e イベント
+   */
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(`formValue=${JSON.stringify(formValue)}`)
     setFormValue({
@@ -70,7 +73,7 @@ const Form: React.FC<FormProps> = ({ book }) => {
           <Stack key={book?.id}>
             <FormControl>
               <Label>ID</Label>
-              <Input name='id' disabled value={book?.id} />
+              <Input name='id' value={book?.id} readOnly />
             </FormControl>
           </Stack>
         )}

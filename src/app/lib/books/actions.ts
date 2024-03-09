@@ -106,9 +106,6 @@ export const editBook = async (
   prevState: ValidateMessageState,
   formData: FormData
 ): Promise<ValidateMessageState> => {
-  console.log('edit start')
-  console.log(`formData=${JSON.stringify(formData)}`)
-
   const validatedFields = PutBook.safeParse({
     id: formData.get('id'),
     title: formData.get('title'),
@@ -124,8 +121,7 @@ export const editBook = async (
     return errors
   }
 
-  const { title, author } = validatedFields.data
-  console.log(`title=${title}, author=${author}`)
+  const { id, title, author } = validatedFields.data
 
   const isbn = '1234567' // TODO book apiで取ってくる
   await sql`
@@ -133,7 +129,7 @@ export const editBook = async (
     title = ${title},
     author = ${author}, 
     isbn = ${isbn}
-    WHERE id = 18 
+    WHERE id = ${id} 
     `
 
   revalidatePath('/books')
