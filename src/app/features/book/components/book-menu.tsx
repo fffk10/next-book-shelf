@@ -1,14 +1,14 @@
 'use client'
 
-import { clearSelectedIds } from '@/app/books/booksSlice'
-import { CommonButton } from '@/app/components/common/buttons'
-import CommonModal from '@/app/components/common/modal'
-import { deleteBooks } from '@/app/lib/books/actions'
+import { clearSelectedIds } from '@/app/features/book/slice/booksSlice'
+import { CommonButton } from '@/app/components/parts/buttons'
+import CommonModal from '@/app/components/parts/modal'
 import { AppDispatch, RootState } from '@/app/store'
 import { Flex, List, ListItem, Stack, Text } from '@yamada-ui/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { deleteBooks } from '@/app/lib/books/data'
 
 const BookMenu = () => {
   // 書籍状態管理

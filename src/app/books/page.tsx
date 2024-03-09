@@ -1,5 +1,5 @@
-import BookMenu from '@/app/components/books/book-menu'
-import BookTable from '@/app/components/books/book-table'
+import BookMenu from '@/app/features/book/components/book-menu'
+import BookTable from '@/app/features/book/components/book-table'
 import { fetchBooks } from '@/app/lib/books/data'
 import { AppDispatch, RootState } from '@/app/store'
 import { Heading, Stack } from '@yamada-ui/react'

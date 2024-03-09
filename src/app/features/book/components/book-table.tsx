@@ -1,6 +1,9 @@
 'use client'
 
-import { addMultiple, addSelectedIds } from '@/app/books/booksSlice'
+import {
+  addMultiple,
+  addSelectedIds,
+} from '@/app/features/book/slice/booksSlice'
 import { Book } from '@/app/models/Book'
 import { AppDispatch, RootState } from '@/app/store'
 import { Column, PagingTable } from '@yamada-ui/table'
@@ -45,7 +48,7 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
   }
 
   return (
-    <div className='max-h-[900px] overflow-y-auto'>
+    <div className='h-[700px] overflow-y-auto'>
       <PagingTable
         variant='striped'
         columns={columns}

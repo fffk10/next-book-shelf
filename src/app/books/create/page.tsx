@@ -1,12 +1,12 @@
-import CreateForm from '@/app/components/books/form/create-form'
+import Form from '@/app/features/book/components/form/form'
 import { Heading, Stack } from '@yamada-ui/react'
 
 export default function Create() {
   return (
     <Stack>
-      <Heading as='h2'>新規登録</Heading>
+      <Heading as='h2'>書籍新規登録</Heading>
 
-      <CreateForm />
+      <Form />
     </Stack>
   )
 }

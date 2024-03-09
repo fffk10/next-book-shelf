@@ -1,4 +1,4 @@
-import { CommonButton } from '@/app/components/common/buttons'
+import { CommonButton } from '@/app/components/parts/buttons'
 import {
   Modal,
   ModalOverlay,
