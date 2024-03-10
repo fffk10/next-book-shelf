@@ -58,7 +58,6 @@ const Form: React.FC<FormProps> = ({ book }) => {
    * @param e イベント
    */
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(`formValue=${JSON.stringify(formValue)}`)
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,

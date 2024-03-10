@@ -1,7 +1,7 @@
 'use client'
 
 import { clearSelectedIds } from '@/app/features/book/slice/booksSlice'
-import { CommonButton } from '@/app/components/parts/buttons'
+import { CommonButton } from '@/app/components/parts/button'
 import CommonModal from '@/app/components/parts/modal'
 import { AppDispatch, RootState } from '@/app/store'
 import { Flex, List, ListItem, Stack, Text } from '@yamada-ui/react'

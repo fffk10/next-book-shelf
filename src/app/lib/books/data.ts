@@ -29,7 +29,7 @@ export const deleteBooks = async (id: string): Promise<void> => {
       DELETE FROM books WHERE id IN (${id})
     `
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 
   revalidatePath('/books')

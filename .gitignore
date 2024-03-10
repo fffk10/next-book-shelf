@@ -37,3 +37,6 @@ next-env.d.ts
 
 # .vscode
 /.vscode
+
+# temp.json(json確認用)
+temp.json

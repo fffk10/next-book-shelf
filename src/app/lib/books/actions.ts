@@ -67,9 +67,6 @@ export const createBook = async (
   prevState: ValidateMessageState,
   formData: FormData
 ): Promise<ValidateMessageState> => {
-  console.log('create start')
-  console.log(`formData=${JSON.stringify(formData)}`)
-
   const validatedFields = CreateBook.safeParse({
     title: formData.get('title'),
     author: formData.get('author'),
@@ -80,12 +77,11 @@ export const createBook = async (
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Missing Fields. Failed to Create Book.',
     }
-    console.log(errors)
+    console.error(errors)
     return errors
   }
 
   const { title, author } = validatedFields.data
-  console.log(`title=${title}, author=${author}`)
 
   const isbn = '1234567' // TODO book apiで取ってくる
   await sql`
@@ -117,7 +113,7 @@ export const editBook = async (
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Missing Fields. Failed to Edit Book.',
     }
-    console.log(errors)
+    console.error(errors)
     return errors
   }
 

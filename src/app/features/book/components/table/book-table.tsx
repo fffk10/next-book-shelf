@@ -6,9 +6,12 @@ import {
 } from '@/app/features/book/slice/booksSlice'
 import { Book } from '@/app/models/Book'
 import { AppDispatch, RootState } from '@/app/store'
-import { Column, PagingTable } from '@yamada-ui/table'
-import { useEffect, useMemo } from 'react'
+import { Column, PagingTable, Row } from '@yamada-ui/table'
+import { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { MdModeEdit } from 'react-icons/md'
+import Link from 'next/link'
+import { Button } from '@yamada-ui/react'
 
 type BookTableProps = {
   books: Book[]
@@ -33,6 +36,15 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
         header: '出版社',
         accessorKey: 'publisher',
       },
+      {
+        id: 'edit',
+        header: '',
+        cell: ({ row }) => (
+          <Link href={`books/edit/${row.id}`} target='_blank'>
+            <MdModeEdit />
+          </Link>
+        ),
+      },
     ],
     []
   )
@@ -47,6 +59,9 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
     dispatch(addSelectedIds(ids))
   }
 
+  const [openRowMenu, setOpenRowMenu] = useState(false)
+  const handleOpenMenu = (id: Row<Book>) => {}
+
   return (
     <div className='h-[700px] overflow-y-auto'>
       <PagingTable
@@ -57,7 +72,7 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
         highlightOnHover
         selectedRowIds={selectedIds}
         onChangeSelect={handleChangeSelect}
-        rowsClickSelect
+        onClickRow={handleOpenMenu}
         theadProps={{
           position: 'sticky',
           top: 0,
