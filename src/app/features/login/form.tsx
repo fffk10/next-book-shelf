@@ -1,8 +1,9 @@
-import { FormControl, Label, Input, Button, Stack, Box } from '@yamada-ui/react'
+import { CommonButton } from '@/app/components/parts/button'
+import { FormControl, Label, Input, VStack, Stack } from '@yamada-ui/react'
 
 export default function Form() {
   return (
-    <Box as='form' action=''>
+    <VStack as='form' action=''>
       <Stack>
         <FormControl>
           <Label>ID</Label>
@@ -18,9 +19,9 @@ export default function Form() {
       </Stack>
 
       <Stack>
-        <Button>クリア</Button>
-        <Button>ログイン</Button>
+        <CommonButton text='クリア' />
+        <CommonButton text='ログイン' />
       </Stack>
-    </Box>
+    </VStack>
   )
 }
