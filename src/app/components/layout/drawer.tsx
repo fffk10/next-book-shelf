@@ -10,7 +10,7 @@ interface DrawerProps {
   onClose: () => void
 }
 
-const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
+export default function Drawer({ isOpen, onClose }: DrawerProps) {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -73,5 +73,3 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
     </div>
   )
 }
-
-export default Drawer

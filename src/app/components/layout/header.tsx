@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Header: React.FC = () => {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const handleDrawerClose = async () => {
     setIsOpen(false)
@@ -39,5 +39,3 @@ const Header: React.FC = () => {
     </header>
   )
 }
-
-export default Header

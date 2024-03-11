@@ -16,7 +16,7 @@ type BookTableProps = {
   books: Book[]
 }
 
-const BookTable: React.FC<BookTableProps> = ({ books }) => {
+export default function BookTable({ books }: BookTableProps) {
   const columns = useMemo<Column<Book>[]>(
     () => [
       {
@@ -87,5 +87,3 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
     </div>
   )
 }
-
-export default BookTable

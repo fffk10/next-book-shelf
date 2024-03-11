@@ -2,7 +2,7 @@ import { Book } from '@/app/models/Book'
 import { BreakPoint } from '@/app/types/breakpoint'
 import { ValidateMessageState } from '@/app/types/validate'
 import { FormControl, Label, Input } from '@yamada-ui/react'
-import { ChangeEvent, ChangeEventHandler } from 'react'
+import { ChangeEvent } from 'react'
 
 /**
  * @property name
@@ -34,15 +34,15 @@ export type FormInputProps = {
  * @param validateMessageState バリデーションエラーメッセージ
  * @returns
  */
-const FormInput: React.FC<FormInputProps> = ({
+export default function FormInput({
   name,
   label,
   placeholder = '',
-  value = { title: '', author: '' },
+  value = { id: 0, title: '', author: '' },
   valueChange = () => {},
   size = 'md',
   validateMessageState = {},
-}) => {
+}: FormInputProps) {
   return (
     <FormControl
       isInvalid={!!validateMessageState.errors?.[name]}
@@ -60,5 +60,3 @@ const FormInput: React.FC<FormInputProps> = ({
     </FormControl>
   )
 }
-
-export default FormInput

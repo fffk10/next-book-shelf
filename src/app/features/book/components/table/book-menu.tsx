@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteBooks } from '@/app/lib/books/data'
 
-const BookMenu = () => {
+export default function BookMenu() {
   // 書籍状態管理
   const books = useSelector((state: RootState) => state.books.books)
   const selectedIds = useSelector((state: RootState) => state.books.selectedIds)
@@ -86,5 +86,3 @@ const BookMenu = () => {
     </>
   )
 }
-
-export default BookMenu

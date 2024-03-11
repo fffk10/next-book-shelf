@@ -1,10 +1,11 @@
 import Form from '@/app/features/login/form'
-import { Box, Text } from '@yamada-ui/react'
+import { Box, Heading } from '@yamada-ui/react'
 
 const Login = () => {
   return (
     <Box>
-      <Text>ログインページ</Text>
+      <Heading as='h2'>ログインページ</Heading>
+
       <Form />
     </Box>
   )

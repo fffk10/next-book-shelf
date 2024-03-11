@@ -1,7 +1,6 @@
-import form from '@/app/features/book/components/form/form'
 import { FormControl, Label, Input, Button, Stack, Box } from '@yamada-ui/react'
 
-const Form: React.FC = () => {
+export default function Form() {
   return (
     <Box as='form' action=''>
       <Stack>
@@ -25,5 +24,3 @@ const Form: React.FC = () => {
     </Box>
   )
 }
-
-export default Form

@@ -15,7 +15,7 @@ export const SidebarItems: SidebarItem[] = [
   { name: 'setting', href: 'settings', icon: <CiSettings /> },
 ]
 
-const Sidebar: React.FC = () => {
+export default function Sidebar() {
   return (
     <aside className='hidden md:block w-64 bg-white text-gray-900 p-4 border-r '>
       <nav>
@@ -36,5 +36,3 @@ const Sidebar: React.FC = () => {
     </aside>
   )
 }
-
-export default Sidebar

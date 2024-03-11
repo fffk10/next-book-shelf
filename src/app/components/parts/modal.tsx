@@ -32,9 +32,9 @@ type CommonModalProps = {
  * @param cancelText ネガティブボタンテキスト
  * @param onConfirm ポジティブボタンクリックハンドラ
  * @param onCancel ネガティブボタンクリックハンドラ
- * @returns
+ * @returns モーダル
  */
-const CommonModal: React.FC<CommonModalProps> = ({
+export default function CommonModal({
   isOpen,
   onClose,
   title,
@@ -44,7 +44,7 @@ const CommonModal: React.FC<CommonModalProps> = ({
   cancelText = '戻る',
   onConfirm,
   onCancel,
-}) => {
+}: CommonModalProps) {
   const handleConfirm = () => {
     if (onConfirm) {
       onConfirm()
@@ -82,5 +82,3 @@ const CommonModal: React.FC<CommonModalProps> = ({
     </Modal>
   )
 }
-
-export default CommonModal

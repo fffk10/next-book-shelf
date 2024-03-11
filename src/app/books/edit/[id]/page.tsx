@@ -15,7 +15,7 @@ type BookEditProps = {
  * @param params id 書籍ID
  * @returns 書籍編集ページ
  */
-const BookEdit: React.FC<BookEditProps> = async ({ params }) => {
+export default async function BookEdit({ params }: BookEditProps) {
   const book = await fetchBook(params.id)
 
   return (
@@ -25,5 +25,3 @@ const BookEdit: React.FC<BookEditProps> = async ({ params }) => {
     </Stack>
   )
 }
-
-export default BookEdit

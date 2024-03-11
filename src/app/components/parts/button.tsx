@@ -34,7 +34,7 @@ type CommonButtonProps = {
  * @param rightIcon ライトアイコン
  * @returns ボタン
  */
-export const CommonButton: React.FC<CommonButtonProps> = ({
+export function CommonButton({
   text = '',
   variant = 'outline',
   size = 'sm',
@@ -43,7 +43,7 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
   onClick = () => {},
   leftIcon = <></>,
   rightIcon = <></>,
-}) => {
+}: CommonButtonProps) {
   return (
     <Button
       variant={variant}

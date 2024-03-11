@@ -42,7 +42,7 @@ type FormProps = {
   book?: Book // 編集対象の書籍 propsに渡されない場合は新規登録
 }
 
-const Form: React.FC<FormProps> = ({ book }) => {
+export default function Form({ book }: FormProps) {
   const isEdit = book ? true : false
   // バリデーションメッセージ
   const initialState: ValidateMessageState = { message: null, errors: {} }
@@ -96,5 +96,3 @@ const Form: React.FC<FormProps> = ({ book }) => {
     </Box>
   )
 }
-
-export default Form

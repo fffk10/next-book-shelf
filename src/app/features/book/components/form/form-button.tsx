@@ -1,6 +1,6 @@
 import { Stack, Button } from '@yamada-ui/react'
 
-const FormButton = () => {
+export default function FormButton() {
   return (
     <Stack>
       <Button colorScheme='gray' type='reset'>
@@ -12,5 +12,3 @@ const FormButton = () => {
     </Stack>
   )
 }
-
-export default FormButton
