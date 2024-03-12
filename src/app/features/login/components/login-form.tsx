@@ -1,7 +1,6 @@
 'use client'
 
 import CommonAlert from '@/app/components/parts/alert'
-import { CommonButton } from '@/app/components/parts/button'
 import { authenticate } from '@/app/lib/login/actions'
 import {
   FormControl,
@@ -13,8 +12,6 @@ import {
   InputGroup,
   InputRightElement,
   useBoolean,
-  Checkbox,
-  Box,
 } from '@yamada-ui/react'
 import { useFormState, useFormStatus } from 'react-dom'
 
@@ -42,6 +39,7 @@ export default function LoginForm() {
       <Stack>
         <InputGroup>
           <Input
+            name='password'
             pr='4.5rem'
             type={showPassword ? 'text' : 'password'}
             placeholder='例) password01'
@@ -65,5 +63,9 @@ export default function LoginForm() {
 function LoginButton() {
   const { pending } = useFormStatus()
 
-  return <Button type='submit'>ログイン</Button>
+  return (
+    <Button colorScheme='primary' type='submit' aria-disabled={pending}>
+      ログイン
+    </Button>
+  )
 }
