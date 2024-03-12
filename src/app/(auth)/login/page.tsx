@@ -4,7 +4,7 @@ import { Box, Heading } from '@yamada-ui/react'
 const Login = () => {
   return (
     <Box margin='auto' maxW='400px'>
-      <Heading as='h2'>ログインページ</Heading>
+      <Heading as='h2'>ログイン</Heading>
 
       <LoginForm />
     </Box>

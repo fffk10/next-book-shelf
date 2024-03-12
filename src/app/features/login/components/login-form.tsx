@@ -1,5 +1,6 @@
 'use client'
 
+import CommonAlert from '@/app/components/parts/alert'
 import { CommonButton } from '@/app/components/parts/button'
 import { authenticate } from '@/app/lib/login/actions'
 import {
@@ -9,40 +10,60 @@ import {
   VStack,
   Stack,
   Button,
+  InputGroup,
+  InputRightElement,
+  useBoolean,
+  Checkbox,
+  Box,
 } from '@yamada-ui/react'
 import { useFormState, useFormStatus } from 'react-dom'
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined)
 
+  const [showPassword, { toggle }] = useBoolean()
+
   return (
-    <VStack as='form' action={dispatch}>
+    <VStack mt={4} as='form' action={dispatch}>
+      {errorMessage && (
+        <CommonAlert
+          status='error'
+          description='メールアドレスまたはパスワードに誤りがあるか、登録されていません。'
+        />
+      )}
+
       <Stack>
         <FormControl>
           <Label>メールアドレス</Label>
-          <Input />
+          <Input name='email' placeholder='例) example@example.com' />
         </FormControl>
       </Stack>
 
       <Stack>
-        <FormControl>
-          <Label>password</Label>
-          <Input />
-        </FormControl>
+        <InputGroup>
+          <Input
+            pr='4.5rem'
+            type={showPassword ? 'text' : 'password'}
+            placeholder='例) password01'
+          />
+
+          <InputRightElement w='4.5rem' isClick>
+            <Button h='1.75rem' size='sm' onClick={toggle}>
+              {showPassword ? 'Hide' : 'Show'}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
       </Stack>
 
       <Stack>
-        <CommonButton text='クリア' />
-        {/* <LoginButton /> */}
+        <LoginButton />
       </Stack>
-
-      {/* {errorMessage && <>ログイン失敗</>} */}
     </VStack>
   )
 }
 
-// function LoginButton() {
-//   const { pending } = useFormStatus()
+function LoginButton() {
+  const { pending } = useFormStatus()
 
-//   return <Button>Log in</Button>
-// }
+  return <Button type='submit'>ログイン</Button>
+}
