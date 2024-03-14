@@ -8,11 +8,6 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'ログインページ',
-  description: 'login page',
-}
-
 export default function LoginLayout({
   children,
 }: Readonly<{

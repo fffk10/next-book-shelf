@@ -16,7 +16,7 @@ import {
 import { useFormState, useFormStatus } from 'react-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-export default function LoginForm() {
+export default function SignupForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined)
 
   const [showPassword, { toggle }] = useBoolean()
@@ -26,12 +26,12 @@ export default function LoginForm() {
       {errorMessage && (
         <CommonAlert
           status='error'
-          description='メールアドレスまたはパスワードに誤りがあるか、登録されていません。'
+          description='このメールアドレスは既に登録されています。'
         />
       )}
 
       <Stack>
-        <FormControl>
+        <FormControl helperMessage='メールアドレスは後から変更できます。'>
           <Label>メールアドレス</Label>
           <Input name='email' placeholder='例) example@example.com' />
         </FormControl>
@@ -55,13 +55,13 @@ export default function LoginForm() {
       </Stack>
 
       <Stack>
-        <LoginButton />
+        <RegisterButton />
       </Stack>
     </VStack>
   )
 }
 
-function LoginButton() {
+function RegisterButton() {
   const { pending } = useFormStatus()
 
   return (

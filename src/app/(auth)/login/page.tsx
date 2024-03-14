@@ -1,5 +1,11 @@
 import LoginForm from '@/app/features/login/components/login-form'
 import { Box, Flex, Heading, Link } from '@yamada-ui/react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ログインページ',
+  description: 'login page',
+}
 
 const Login = () => {
   return (
