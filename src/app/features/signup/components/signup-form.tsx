@@ -12,8 +12,6 @@ import {
   InputGroup,
   InputRightElement,
   useBoolean,
-  Link,
-  Flex,
 } from '@yamada-ui/react'
 import { useFormState, useFormStatus } from 'react-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
@@ -40,23 +38,20 @@ export default function LoginForm() {
       </Stack>
 
       <Stack>
-        <FormControl>
-          <Label>パスワード</Label>
-          <InputGroup>
-            <Input
-              name='password'
-              pr='4.5rem'
-              type={showPassword ? 'text' : 'password'}
-              placeholder='例) password01'
-            />
+        <InputGroup>
+          <Input
+            name='password'
+            pr='4.5rem'
+            type={showPassword ? 'text' : 'password'}
+            placeholder='例) password01'
+          />
 
-            <InputRightElement isClick>
-              <Button variant='unstyled' size='sm' onClick={toggle}>
-                {showPassword ? <FaEye /> : <FaEyeSlash />}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
+          <InputRightElement isClick>
+            <Button variant='unstyled' size='sm' onClick={toggle}>
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
       </Stack>
 
       <Stack>
