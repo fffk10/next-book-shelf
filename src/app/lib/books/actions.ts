@@ -1,7 +1,6 @@
 'use server'
 
 import { ValidateMessageState } from '@/app/types/validate'
-import { sql } from '@vercel/postgres'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
