@@ -8,7 +8,7 @@ import { Flex, List, ListItem, Stack, Text } from '@yamada-ui/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteBooks } from '@/app/lib/books/data'
+import { deleteBook } from '@/app/lib/books/data'
 
 export default function BookMenu() {
   // 書籍状態管理
@@ -46,7 +46,7 @@ export default function BookMenu() {
   const handleDelete = async (): Promise<void> => {
     // TODO Loading
     for (const id of selectedIds) {
-      await deleteBooks(id)
+      await deleteBook(id)
     }
 
     dispatch(clearSelectedIds())

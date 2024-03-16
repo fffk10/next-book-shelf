@@ -6,6 +6,8 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
 
+const baseUrl = 'http://localhost:3333/books'
+
 const CreateFormSchema = z.object({
   title: z
     .string()
@@ -84,10 +86,18 @@ export const createBook = async (
   const { title, author } = validatedFields.data
 
   const isbn = '1234567' // TODO book apiで取ってくる
-  await sql`
-    INSERT INTO books (title, author, isbn)
-    VALUES (${title}, ${author}, ${isbn})
-    `
+  const body = {
+    title,
+    author,
+    isbn,
+  }
+  await fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  })
 
   revalidatePath('/books')
   redirect('/books')
@@ -120,13 +130,19 @@ export const editBook = async (
   const { id, title, author } = validatedFields.data
 
   const isbn = '1234567' // TODO book apiで取ってくる
-  await sql`
-    UPDATE books SET 
-    title = ${title},
-    author = ${author}, 
-    isbn = ${isbn}
-    WHERE id = ${id} 
-    `
+  const body = {
+    title,
+    author,
+    isbn,
+  }
+
+  await fetch(`${baseUrl}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  })
 
   revalidatePath('/books')
   redirect('/books')
