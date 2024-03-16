@@ -13,10 +13,10 @@ export const fetchBook = async (id: number): Promise<Book> => {
 }
 
 export const fetchBooks = async (): Promise<Book[]> => {
-  const books = await sql<Book>`
-    SELECT * FROM books ORDER BY id LIMIT 100`
+  const response = await fetch('http://localhost:3333/books')
+  const data = await response.json()
 
-  return books.rows
+  return data
 }
 
 /**
