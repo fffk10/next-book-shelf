@@ -1,6 +1,5 @@
 'use server'
 
-import { sql } from '@vercel/postgres'
 import { Book } from '@/app/models/Book'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'

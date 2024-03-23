@@ -3,15 +3,17 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import { authConfig } from './auth.config'
-import { sql } from '@vercel/postgres'
 import { z } from 'zod'
 import type { User } from '@/app/models/User'
 import bcrypt from 'bcrypt'
 
+const endpoint = process.env.API_ENDPOINT
+
 async function getUser(email: string): Promise<User | undefined> {
   try {
-    const user = await sql<User>`SELECT * FROM users WHERE email=${email}`
-    return user.rows[0]
+    const response = await fetch(`${endpoint}/users/${email}`)
+    const data = await response.json()
+    return data
   } catch (error) {
     console.error('Failed to fetch user:', error)
     throw new Error('Failed to fetch user.')
