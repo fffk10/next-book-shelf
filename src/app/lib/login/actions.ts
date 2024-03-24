@@ -8,10 +8,10 @@ import { AuthError } from 'next-auth'
  * @param prevState (未使用)
  * @param formData フォームデータ
  */
-export async function authenticate(
+export const authenticate = async (
   prevState: string | undefined,
   formData: FormData
-) {
+) => {
   try {
     await signIn('credentials', formData)
   } catch (error) {

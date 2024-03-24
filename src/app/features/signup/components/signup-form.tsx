@@ -1,7 +1,6 @@
 'use client'
 
-import CommonAlert from '@/app/components/parts/alert'
-import { authenticate } from '@/app/lib/login/actions'
+import { signup } from '@/app/lib/signup/action'
 import {
   FormControl,
   Label,
@@ -17,19 +16,13 @@ import { useFormState, useFormStatus } from 'react-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 export default function SignupForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+  const initialState = { message: '', errors: {} }
+  const [state, dispatch] = useFormState(signup, initialState)
 
   const [showPassword, { toggle }] = useBoolean()
 
   return (
-    <VStack mt={4} as='form' action={dispatch}>
-      {errorMessage && (
-        <CommonAlert
-          status='error'
-          description='このメールアドレスは既に登録されています。'
-        />
-      )}
-
+    <VStack as='form' mt={4} action={dispatch}>
       <Stack>
         <FormControl helperMessage='メールアドレスは後から変更できます。'>
           <Label>メールアドレス</Label>
