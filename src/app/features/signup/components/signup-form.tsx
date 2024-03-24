@@ -24,6 +24,13 @@ export default function SignupForm() {
   return (
     <VStack as='form' mt={4} action={dispatch}>
       <Stack>
+        <FormControl>
+          <Label>ユーザー名</Label>
+          <Input name='username' />
+        </FormControl>
+      </Stack>
+
+      <Stack>
         <FormControl helperMessage='メールアドレスは後から変更できます。'>
           <Label>メールアドレス</Label>
           <Input name='email' placeholder='例) example@example.com' />
@@ -59,7 +66,7 @@ function RegisterButton() {
 
   return (
     <Button colorScheme='primary' type='submit' aria-disabled={pending}>
-      ログイン
+      登録
     </Button>
   )
 }
