@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { RiBookLine } from 'react-icons/ri'
 import { CiSettings } from 'react-icons/ci'
+import { useTheme } from '@yamada-ui/react'
 
 type SidebarItem = {
   name: string
@@ -16,6 +17,8 @@ export const SidebarItems: SidebarItem[] = [
 ]
 
 export default function Sidebar() {
+  const { themeScheme, changeThemeScheme } = useTheme()
+
   return (
     <aside className='h-full hidden md:block w-52 bg-white text-gray-900 p-4 border-r '>
       <nav className='flex flex-col h-full'>
@@ -32,6 +35,10 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
+        <div>{themeScheme}</div>
+        <button onClick={() => changeThemeScheme('pink')}>pink</button>
+        <button onClick={() => changeThemeScheme('blue')}>blue</button>
+        <button onClick={() => changeThemeScheme('light')}>light</button>
       </nav>
     </aside>
   )

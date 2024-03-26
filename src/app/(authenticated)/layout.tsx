@@ -3,8 +3,9 @@ import Header from '@/app/components/layout/header'
 import Sidebar from '@/app/components/layout/sidebar'
 import Main from '@/app/components/layout/main'
 import Providers from '@/app/providers'
-import { UIProvider } from '@yamada-ui/react'
+import { themeSchemeManager, UIProvider } from '@yamada-ui/react'
 import { signOut } from '../../../auth'
+import { config } from '@/app/theme'
 
 type AuthenticatedLayoutProps = {
   children: React.ReactNode
