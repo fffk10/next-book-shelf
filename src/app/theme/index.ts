@@ -1,3 +1,5 @@
+'use client'
+
 import { extendTheme, extendConfig } from '@yamada-ui/react'
 
 export const theme = extendTheme({

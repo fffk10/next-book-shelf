@@ -14,18 +14,12 @@ export default function LoginLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='ja'>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <Providers>
-          <UIProvider>
-            <Header />
-            <div className='flex flex-1'>
-              <Main>{children}</Main>
-            </div>
-            <Footer />
-          </UIProvider>
-        </Providers>
-      </body>
-    </html>
+    <>
+      <Header />
+      <div className='flex flex-1'>
+        <Main>{children}</Main>
+      </div>
+      <Footer />
+    </>
   )
 }
