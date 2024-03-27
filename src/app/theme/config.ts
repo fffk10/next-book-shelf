@@ -1,7 +1,7 @@
 'use client'
 
-import { createColorModeManager, extendConfig } from '@yamada-ui/react'
+import { extendConfig } from '@yamada-ui/react'
 
 export const customConfig = extendConfig({
-  initialColorMode: 'light',
+  initialColorMode: 'system',
 })
