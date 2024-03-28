@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { RiBookLine } from 'react-icons/ri'
-import { CiSettings } from 'react-icons/ci'
+import { CiSettings, CiLight, CiDark } from 'react-icons/ci'
 import { useColorMode, Wrap, Button } from '@yamada-ui/react'
 
 type SidebarItem = {
@@ -37,12 +37,15 @@ export default function Sidebar() {
         </ul>
 
         <Wrap gap='md'>
-          <Button onClick={() => changeColorMode('light')}>ライトモード</Button>
-          <Button onClick={() => changeColorMode('dark')}>ダークモード</Button>
-          <Button onClick={() => changeColorMode('system')}>システム</Button>
-          <Button onClick={toggleColorMode}>
-            {colorMode === 'light' ? 'ダーク' : 'ライト'}モードに切り替える
-          </Button>
+          {colorMode === 'light' ? (
+            <Button variant='unstyled' onClick={() => changeColorMode('light')}>
+              <CiDark />
+            </Button>
+          ) : (
+            <Button variant='unstyled' onClick={() => changeColorMode('light')}>
+              <CiLight />
+            </Button>
+          )}
         </Wrap>
       </nav>
     </aside>
