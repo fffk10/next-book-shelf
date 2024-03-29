@@ -1,7 +1,4 @@
-// app/components/Drawer.tsx
-'use client'
-
-import { SidebarItems } from '@/app/components/layout/sidebar'
+import { ITEMS } from '@/app/components/layout/sidebar/sidebar-items'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
@@ -56,7 +53,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
         </button>
         <nav>
           <ul>
-            {SidebarItems.map((item) => (
+            {ITEMS.map((item) => (
               <li key={item.name} className='m-3'>
                 <Link
                   href={`/${item.href}`}
