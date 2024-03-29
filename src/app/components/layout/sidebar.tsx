@@ -38,7 +38,7 @@ export default function Sidebar() {
 
         <Wrap gap='md'>
           {colorMode === 'light' ? (
-            <Button variant='unstyled' onClick={() => changeColorMode('light')}>
+            <Button variant='unstyled' onClick={() => changeColorMode('dark')}>
               <CiDark />
             </Button>
           ) : (
