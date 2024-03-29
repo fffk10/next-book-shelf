@@ -1,24 +1,36 @@
 import ThemeToggle from '@/app/components/parts/theme-toggle'
 import SidebarItems from '@/app/components/layout/sidebar/sidebar-items'
 import { signOut } from '../../../../../auth'
+import { Box, Button, Flex } from '@yamada-ui/react'
 
 export default async function Sidebar() {
   return (
-    <aside className='h-full hidden md:block w-40 bg-white text-gray-900 p-4 border-r '>
-      <nav className='flex flex-col h-full'>
+    <Box
+      h='full'
+      w={40}
+      bg={['white', 'gray.800']}
+      borderRight='1px'
+      display={{ base: 'block', sm: 'none' }}
+      p={4}
+      textColor={['gray.900', 'white']}
+    >
+      <Flex flexDirection='column' h='full'>
         <SidebarItems />
 
         <ThemeToggle />
-        <form
+        <Flex
+          as='form'
+          flex='none'
+          h='auto'
+          p={4}
           action={async () => {
             'use server'
             await signOut()
           }}
-          className='flex-none h-auto p-4'
         >
-          <button>ログアウト</button>
-        </form>
-      </nav>
-    </aside>
+          <Button variant='unstyled'>ログアウト</Button>
+        </Flex>
+      </Flex>
+    </Box>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
-import Link from 'next/link'
+import { Text, Icon, List, ListItem } from '@yamada-ui/react'
+import NextLink from 'next/link'
 import { CiSettings } from 'react-icons/ci'
 import { RiBookLine } from 'react-icons/ri'
 
@@ -11,21 +12,23 @@ type SidebarItem = {
 }
 
 export const ITEMS: SidebarItem[] = [
-  { name: 'books', href: 'books', icon: <RiBookLine /> },
-  { name: 'setting', href: 'settings', icon: <CiSettings /> },
+  { name: 'books', href: 'books', icon: <Icon as={RiBookLine} /> },
+  { name: 'setting', href: 'settings', icon: <Icon as={CiSettings} /> },
 ]
 
 export default function SidebarItems() {
   return (
-    <ul className='mb-auto'>
+    <List marginBottom='auto'>
       {ITEMS.map((item) => (
-        <li key={item.name} className='m-3 h-'>
-          <Link href={`/${item.href}`} className='flex items-center text-lg'>
-            <span className='mr-2'>{item.icon}</span>
-            {item.name}
-          </Link>
-        </li>
+        <ListItem key={item.name} m={2} h={3}>
+          <NextLink
+            href={`/${item.href}`}
+            className='flex items-center text-lg'
+          >
+            {item.icon} <Text marginLeft={2}>{item.name}</Text>
+          </NextLink>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   )
 }

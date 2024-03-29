@@ -4,6 +4,7 @@ import Drawer from '@/app/components/layout/drawer'
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Flex } from '@yamada-ui/react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,7 +13,15 @@ export default function Header() {
   }
 
   return (
-    <header className='flex justify-between items-center p-4 bg-purple-950 text-white'>
+    <Flex
+      as='header'
+      justifyContent='space-between'
+      p={4}
+      text='white'
+      alignItems='center'
+      bgGradient='linear(to-r, #59a9e1, #f37bdf)'
+      textColor='white'
+    >
       <Link href='/'>
         <div className='flex text-2xl font-bold'>
           <Image src='/logo.png' width={32} height={32} alt='logo' />
@@ -36,6 +45,6 @@ export default function Header() {
         </svg>
       </button>
       <Drawer isOpen={isOpen} onClose={handleDrawerClose} />
-    </header>
+    </Flex>
   )
 }
