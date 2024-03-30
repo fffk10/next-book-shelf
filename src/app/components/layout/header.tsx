@@ -23,7 +23,7 @@ export default function Header() {
       textColor='white'
     >
       <Link href='/'>
-        <div className='flex text-2xl font-bold'>
+        <div className='flex text-2xl'>
           <Image src='/logo.png' width={32} height={32} alt='logo' />
           BookShelf
         </div>
