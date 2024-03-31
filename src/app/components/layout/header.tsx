@@ -1,16 +1,12 @@
 'use client'
 
-import Drawer from '@/app/components/layout/drawer'
-import { Button, Flex } from '@yamada-ui/react'
+import MobileSideMenu from '@/app/components/layout/sidebar/mobile-side-menu'
+import { Button, Flex, useDisclosure } from '@yamada-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const handleDrawerClose = async () => {
-    setIsOpen(false)
-  }
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Flex
@@ -27,11 +23,15 @@ export default function Header() {
     >
       <Link href='/'>
         <Flex fontSize='2xl'>
-          <Image src='/logo.png' width={32} height={32} alt='logo' />
+          <Image src='/logo.png' width={32} height={36} alt='logo' />
           BookShelf
         </Flex>
       </Link>
-      <Button variant='unstyled' onClick={() => setIsOpen(!isOpen)}>
+      <Button
+        display={{ base: 'none', sm: 'block' }}
+        variant='unstyled'
+        onClick={isOpen ? onClose : onOpen}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -47,7 +47,7 @@ export default function Header() {
           />
         </svg>
       </Button>
-      <Drawer isOpen={isOpen} onClose={handleDrawerClose} />
+      <MobileSideMenu isOpen={isOpen} onClose={onClose} />
     </Flex>
   )
 }
