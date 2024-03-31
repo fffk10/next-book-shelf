@@ -82,7 +82,7 @@ export default function BookTable({ books }: BookTableProps) {
           position: 'sticky',
           top: 0,
           left: 0,
-          bg: ['gray.200', 'red.700'],
+          bg: ['gray.200', 'gray.800'],
           zIndex: 10,
         }}
       />
