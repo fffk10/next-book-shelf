@@ -1,10 +1,10 @@
 'use client'
 
 import Drawer from '@/app/components/layout/drawer'
-import { useState } from 'react'
+import { Button, Flex } from '@yamada-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Flex } from '@yamada-ui/react'
+import { useState } from 'react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,12 +23,12 @@ export default function Header() {
       textColor='white'
     >
       <Link href='/'>
-        <div className='flex text-2xl'>
+        <Flex fontSize='2xl'>
           <Image src='/logo.png' width={32} height={32} alt='logo' />
           BookShelf
-        </div>
+        </Flex>
       </Link>
-      <button className='md:hidden' onClick={() => setIsOpen(!isOpen)}>
+      <Button variant='unstyled' onClick={() => setIsOpen(!isOpen)}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -43,7 +43,7 @@ export default function Header() {
             d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
           />
         </svg>
-      </button>
+      </Button>
       <Drawer isOpen={isOpen} onClose={handleDrawerClose} />
     </Flex>
   )

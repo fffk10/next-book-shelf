@@ -1,10 +1,11 @@
-// app/components/Footer.tsx
 'use client'
+
+import { Box } from '@yamada-ui/react'
 
 export default function Footer() {
   return (
-    <footer className='bg-white text-gray-900 p-4 text-center border-t'>
+    <Box as='footer' p={4} textAlign='center'>
       &copy; 2024 fffk10
-    </footer>
+    </Box>
   )
 }

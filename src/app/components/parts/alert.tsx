@@ -1,10 +1,9 @@
 import {
+  Alert,
+  AlertDescription,
   AlertIcon,
   AlertTitle,
-  AlertDescription,
-  Alert,
 } from '@yamada-ui/react'
-import { text } from 'stream/consumers'
 
 type CommonAlertProps = {
   status: 'info' | 'success' | 'warning' | 'error'

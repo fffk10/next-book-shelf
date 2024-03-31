@@ -1,6 +1,12 @@
 import Form from '@/app/features/book/components/form/form'
 import { fetchBook } from '@/app/lib/books/data'
-import { Stack, Heading } from '@yamada-ui/react'
+import { Heading, Stack } from '@yamada-ui/react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '書籍編集',
+  description: 'edit book page',
+}
 
 type BookEditProps = {
   /** querystrings */

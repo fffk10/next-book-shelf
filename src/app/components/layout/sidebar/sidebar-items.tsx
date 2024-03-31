@@ -1,6 +1,6 @@
 'use client'
 
-import { Text, Icon, List, ListItem } from '@yamada-ui/react'
+import { Icon, List, ListItem, Text } from '@yamada-ui/react'
 import NextLink from 'next/link'
 import { CiSettings } from 'react-icons/ci'
 import { RiBookLine } from 'react-icons/ri'

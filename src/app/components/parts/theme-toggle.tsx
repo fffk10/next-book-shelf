@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, useColorMode, Box } from '@yamada-ui/react'
+import { Box, Button, useColorMode } from '@yamada-ui/react'
 import { CiDark, CiLight } from 'react-icons/ci'
 
 export default function ThemeToggle() {

@@ -1,8 +1,9 @@
 import Footer from '@/app/components/layout/footer'
 import Header from '@/app/components/layout/header'
-import Sidebar from '@/app/components/layout/sidebar/sidebar'
 import Main from '@/app/components/layout/main'
+import Sidebar from '@/app/components/layout/sidebar/sidebar'
 import Providers from '@/app/providers'
+import { Flex } from '@yamada-ui/react'
 
 type AuthenticatedLayoutProps = {
   children: React.ReactNode
@@ -14,12 +15,12 @@ export default function AuthenticatedLayout({
   return (
     <Providers>
       <Header />
-      <div className='flex flex-1'>
-        <div className='flex flex-col'>
+      <Flex flexGrow={1}>
+        <Flex flexDirection='column'>
           <Sidebar />
-        </div>
+        </Flex>
         <Main>{children}</Main>
-      </div>
+      </Flex>
       <Footer />
     </Providers>
   )
