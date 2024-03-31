@@ -23,7 +23,7 @@ export default function MobileSideMenu({
   onClose,
 }: MobileSideMenuProps) {
   return (
-    <Drawer p={4} isOpen={isOpen} onClose={onClose} placement='left' size='sm'>
+    <Drawer p={4} w='170px' isOpen={isOpen} onClose={onClose} placement='left'>
       <DrawerHeader></DrawerHeader>
 
       <DrawerBody>
@@ -43,7 +43,7 @@ export default function MobileSideMenu({
         </Box>
       </DrawerBody>
 
-      <DrawerFooter>
+      <DrawerFooter justifyContent='center'>
         <Box>
           <ThemeToggle />
 
