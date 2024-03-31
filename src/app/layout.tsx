@@ -1,5 +1,5 @@
 import { customConfig } from '@/app/features/theme/config'
-import { ColorModeScript, UIProvider, colorModeManager } from '@yamada-ui/react'
+import { UIProvider, colorModeManager } from '@yamada-ui/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <ColorModeScript initialColorMode='system' />
         <UIProvider
           config={customConfig}
           colorModeManager={{ ...colorModeManager }.cookieStorage}
