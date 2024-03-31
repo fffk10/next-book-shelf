@@ -19,7 +19,10 @@ export default function Header() {
       p={4}
       text='white'
       alignItems='center'
-      bgGradient='linear(to-r, #59a9e1, #f37bdf)'
+      bgGradient={[
+        'linear(to-r, #59a9e1, #f37bdf)',
+        'linear(to-r, #7f399a, #381945)',
+      ]}
       textColor='white'
     >
       <Link href='/'>
