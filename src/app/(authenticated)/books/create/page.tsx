@@ -1,5 +1,5 @@
 import Form from '@/app/features/book/components/form/form'
-import { Heading, Stack } from '@yamada-ui/react'
+import { Box, Heading } from '@yamada-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function Create() {
   return (
-    <Stack>
+    <Box>
       <Heading as='h2'>書籍新規登録</Heading>
 
       <Form />
-    </Stack>
+    </Box>
   )
 }

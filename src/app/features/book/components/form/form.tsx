@@ -1,15 +1,15 @@
 'use client'
 
-import { useFormState } from 'react-dom'
-import { createBook, editBook } from '@/app/lib/books/actions'
-import { Stack, VStack, Input, Label, FormControl, Box } from '@yamada-ui/react'
-import { ValidateMessageState } from '@/app/types/validate'
+import FormButton from '@/app/features/book/components/form/form-button'
 import FormInput, {
   FormInputProps,
 } from '@/app/features/book/components/form/form-input'
-import FormButton from '@/app/features/book/components/form/form-button'
+import { createBook, editBook } from '@/app/lib/books/actions'
 import { Book } from '@/app/models/Book'
+import { ValidateMessageState } from '@/app/types/validate'
+import { Box, FormControl, Input, Label, Stack, VStack } from '@yamada-ui/react'
 import { ChangeEvent, useState } from 'react'
+import { useFormState } from 'react-dom'
 
 /** Form入力要素 */
 const FormInputList: FormInputProps[] = [
@@ -65,8 +65,8 @@ export default function Form({ book }: FormProps) {
   }
 
   return (
-    <Box as='form' action={dispatch}>
-      <VStack>
+    <Box as='form' p={4} action={dispatch}>
+      <VStack maxW='800px'>
         {/* 編集画面はIDを表示 */}
         {isEdit && (
           <Stack key={book?.id}>
