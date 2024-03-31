@@ -6,11 +6,12 @@ import {
 } from '@/app/features/book/slice/booksSlice'
 import { Book } from '@/app/models/Book'
 import { AppDispatch, RootState } from '@/app/store'
-import { Column, PagingTable, Row } from '@yamada-ui/table'
-import { useEffect, useMemo, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { MdModeEdit } from 'react-icons/md'
+import { Box } from '@yamada-ui/react'
+import { Column, PagingTable } from '@yamada-ui/table'
 import Link from 'next/link'
+import { useEffect, useMemo } from 'react'
+import { MdModeEdit } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
 
 type BookTableProps = {
   books: Book[]
@@ -67,8 +68,9 @@ export default function BookTable({ books }: BookTableProps) {
   }
 
   return (
-    <div className='h-[700px] overflow-y-auto'>
+    <Box h='full' maxW={{ base: 'full', sm: '90vw' }} overflow='auto'>
       <PagingTable
+        w={{ base: 'full', sm: '80%' }}
         variant='striped'
         columns={columns}
         data={books}
@@ -84,6 +86,6 @@ export default function BookTable({ books }: BookTableProps) {
           zIndex: 10,
         }}
       />
-    </div>
+    </Box>
   )
 }
