@@ -1,5 +1,6 @@
+import SettingItem from '@/app/(authenticated)/settings/setting-item'
 import Section from '@/app/components/layout/section'
-import { Flex, Heading, Stack, Text } from '@yamada-ui/react'
+import { Heading, Stack } from '@yamada-ui/react'
 
 export default function Account() {
   return (
@@ -9,12 +10,7 @@ export default function Account() {
       </Heading>
 
       <Stack px={2}>
-        <Flex>
-          <Heading as='h4' size='sm' opacity={0.5}>
-            ユーザー名
-          </Heading>
-          <Text>ユーザー名</Text>
-        </Flex>
+        <SettingItem item='ユーザー名' value='fffk10' />
       </Stack>
     </Section>
   )
