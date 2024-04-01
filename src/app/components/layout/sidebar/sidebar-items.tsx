@@ -13,7 +13,7 @@ type SidebarItem = {
 
 export const ITEMS: SidebarItem[] = [
   { name: 'books', href: 'books', icon: <Icon as={RiBookLine} /> },
-  { name: 'setting', href: 'settings', icon: <Icon as={CiSettings} /> },
+  { name: 'settings', href: 'settings', icon: <Icon as={CiSettings} /> },
 ]
 
 export default function SidebarItems() {
