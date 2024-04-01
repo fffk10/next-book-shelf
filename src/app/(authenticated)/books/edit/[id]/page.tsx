@@ -1,6 +1,7 @@
+import PageTitle from '@/app/components/parts/page-title'
 import Form from '@/app/features/book/components/form/form'
 import { fetchBook } from '@/app/lib/books/data'
-import { Heading, Stack } from '@yamada-ui/react'
+import { Stack } from '@yamada-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default async function BookEdit({ params }: BookEditProps) {
 
   return (
     <Stack>
-      <Heading as='h2'>書籍編集</Heading>
+      <PageTitle text='書籍編集' />
       <Form book={book} />
     </Stack>
   )

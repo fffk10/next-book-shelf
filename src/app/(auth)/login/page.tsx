@@ -1,5 +1,6 @@
+import PageTitle from '@/app/components/parts/page-title'
 import LoginForm from '@/app/features/login/components/login-form'
-import { Box, Flex, Heading, Link } from '@yamada-ui/react'
+import { Box, Flex, Link } from '@yamada-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 const Login = () => {
   return (
     <Box margin='auto' maxW='400px'>
-      <Heading as='h2'>ログイン</Heading>
+      <PageTitle text='ログイン' />
 
       <Flex m='0' justifyContent='end'>
         <Link href='/signup' w='140px'>

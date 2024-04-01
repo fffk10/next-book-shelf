@@ -1,5 +1,6 @@
+import PageTitle from '@/app/components/parts/page-title'
 import SignupForm from '@/app/features/signup/components/signup-form'
-import { Box, Heading } from '@yamada-ui/react'
+import { Box } from '@yamada-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 const Signup = () => {
   return (
     <Box margin='auto' maxW='400px'>
-      <Heading as='h2'>会員登録</Heading>
+      <PageTitle text='会員登録' />
 
       <SignupForm />
     </Box>

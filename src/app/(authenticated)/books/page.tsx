@@ -1,7 +1,8 @@
+import PageTitle from '@/app/components/parts/page-title'
 import BookMenu from '@/app/features/book/components/table/book-menu'
 import BookTable from '@/app/features/book/components/table/book-table'
 import { fetchBooks } from '@/app/lib/books/data'
-import { Box, Heading } from '@yamada-ui/react'
+import { Box } from '@yamada-ui/react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default async function Books() {
 
   return (
     <Box>
-      <Heading as='h2'>書籍一覧</Heading>
+      <PageTitle text='書籍一覧' />
 
       <BookMenu />
 
