@@ -7,7 +7,16 @@ import FormInput, {
 import { createBook, editBook } from '@/app/lib/books/actions'
 import { Book } from '@/app/models/Book'
 import { ValidateMessageState } from '@/app/types/validate'
-import { Box, FormControl, Input, Label, Stack, VStack } from '@yamada-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  Input,
+  Label,
+  Stack,
+  VStack,
+} from '@yamada-ui/react'
 import { ChangeEvent, useState } from 'react'
 import { useFormState } from 'react-dom'
 
@@ -43,11 +52,14 @@ type FormProps = {
 }
 
 export default function Form({ book }: FormProps) {
+  /** 編集画面か新規登録画面か */
   const isEdit = book ? true : false
-  // バリデーションメッセージ
+  /** バリデーションメッセージ */
   const initialState: ValidateMessageState = { message: null, errors: {} }
   const action = isEdit ? editBook : createBook
   const [state, dispatch] = useFormState(action, initialState)
+  /** 検索キーワード */
+  const [searchKeyword, setSearchKeyword] = useState('')
 
   // フォームの入力内容
   const [formValue, setFormValue] = useState<Book>(
@@ -64,9 +76,48 @@ export default function Form({ book }: FormProps) {
     })
   }
 
+  const handleSearchKeywordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchKeyword(e.target.value)
+  }
+
+  const handleSearch = async () => {
+    if (searchKeyword.trim() === '') {
+      console.log('検索キーワードが入力されていません。')
+      return
+    }
+
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY
+    const url = `${
+      process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_URL
+    }?q=${encodeURIComponent(searchKeyword)}&key=${apiKey}`
+
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error('APIからのレスポンスが正常ではありません。')
+      }
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error('検索中にエラーが発生しました:', error)
+    }
+  }
+
   return (
     <Box as='form' p={4} action={dispatch}>
       <VStack maxW='800px'>
+        {/* 書籍検索 */}
+        <Label>キーワード検索</Label>
+        <Flex>
+          <Input
+            name='search'
+            value={searchKeyword}
+            placeholder='書籍名/著者名など'
+            onChange={handleSearchKeywordChange}
+          />
+          <Button onClick={handleSearch}>検索</Button>
+        </Flex>
+
         {/* 編集画面はIDを表示 */}
         {isEdit && (
           <Stack key={book?.id}>
