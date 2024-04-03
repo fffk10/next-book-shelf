@@ -6,5 +6,12 @@ type GoogleBook = {
     authors: string[]
     categories: string[]
     title: string
+    industryIdentifiers: {
+      type: string
+      identifier: string
+    }[]
+    publisher: string
+    publishedDate: string
+    description: string
   }
 }

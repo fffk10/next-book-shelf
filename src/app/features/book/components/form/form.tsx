@@ -9,7 +9,6 @@ import { Book } from '@/app/models/Book'
 import { ValidateMessageState } from '@/app/types/validate'
 import {
   Box,
-  Button,
   Flex,
   FormControl,
   Input,
@@ -92,7 +91,7 @@ export default function Form({ book }: FormProps) {
     if (
       eventKey === 'ArrowUp' ||
       eventKey === 'ArrowDown' ||
-      eventKey === 'ConfirmEnter' ||
+      eventKey === 'Enter' ||
       eventKey === 'Escape'
     ) {
       e.preventDefault()
@@ -111,8 +110,8 @@ export default function Form({ book }: FormProps) {
         )
         break
 
-      case 'ConfirmEnter':
-        // ここで検索のAPIを叩く
+      case 'Enter':
+        selectBook(suggestions[focusedIndex])
         break
 
       case 'Escape':
@@ -123,7 +122,16 @@ export default function Form({ book }: FormProps) {
   }
 
   const selectBook = (book: GoogleBook) => {
-    console.log(`selected book=${book}`)
+    setFormValue({
+      id: 100,
+      title: book.volumeInfo.title,
+      author: book.volumeInfo.authors.join(', '),
+      isbn: book.volumeInfo.industryIdentifiers[0].identifier,
+      publisher: book.volumeInfo.publisher,
+      publishedDate: book.volumeInfo.publishedDate,
+      description: book.volumeInfo.description,
+      coverImage: '',
+    })
   }
 
   /**
